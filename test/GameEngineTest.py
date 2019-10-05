@@ -73,6 +73,12 @@ class GameEngineTest(unittest.TestCase):
         self.fill_board(board, np.array([[0, 1, 0], [0, 1, 0], [0, 1, 0]]))
         self.assertTrue(engine.check_if_won(1))
 
+    def test_draw(self):
+        board = Board()
+        engine = GameEngine(board)
+        self.fill_board(board, np.array([1, -1, 1], [-1, 1, -1], [1, -1, 1]))
+        self.assertTrue(engine.is_draw())
+
     def fill_board(self, board, values):
         for i in range(0, 3):
             for j in range(0, 3):
