@@ -1,4 +1,3 @@
-import logging
 import traceback
 
 from engine.GameEngine import *
@@ -15,19 +14,19 @@ clock = pygame.time.Clock()
 def main():
     board = Board()
     engine = GameEngine(board)
-    player = AIPlayer(1, "dude", engine)
-    random_player = HumanPlayer(-1, "Rand", engine)
+    cross_player = AIPlayer(1, "dude", engine)
+    noughts_player = AIPlayer(-1, "Rand", engine)
     view = BoardView(board)
     done = False
     view.update()
     while not done:
         try:
-            player.make_move()
+            cross_player.make_move()
             view.update()
             if engine.game_ended():
                 view.reset()
                 continue
-            random_player.make_move()
+            noughts_player.make_move()
             view.update()
             if engine.game_ended():
                 view.reset()
