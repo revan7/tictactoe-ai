@@ -15,7 +15,7 @@ def main():
     board = Board()
     engine = GameEngine(board)
     cross_player = AIPlayer(1, "dude", engine)
-    noughts_player = AIPlayer(-1, "Rand", engine)
+    noughts_player = HumanPlayer(-1, "Rand", engine)
     view = BoardView(board)
     done = False
     view.update()
